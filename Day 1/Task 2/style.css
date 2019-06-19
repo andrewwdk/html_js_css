@@ -1,0 +1,47 @@
+body{
+	margin: 0;
+	font-family: Arial;
+}
+
+.main{
+	background-image: url("background.jpeg");
+	min-height: 100%;
+	background-position: center;
+ 	background-size: cover;
+}
+
+.title{
+	font-size: 36px;
+	margin-left: 47%;
+	padding-top: 10px;
+}
+
+.panel{
+	margin: 30px 8% 0% 12%;
+	
+}
+
+.container{
+	display: inline-block;
+	height: 250px;
+	width: 180px;
+	background-color: #FFFFE0;
+	margin: 5px;
+	position: relative;
+}
+
+.pic{
+	display: block;
+  	margin-left: auto;
+  	margin-right: auto;
+  	margin-top: 5px;
+  	width: 90%;
+	max-height: 180px;
+}
+
+.pic-info{
+	bottom: 10px;
+	position: absolute;
+	width: 100%;
+	text-align: center;
+}
