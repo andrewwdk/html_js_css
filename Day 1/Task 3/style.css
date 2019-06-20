@@ -1,0 +1,38 @@
+body{
+	margin: 0;
+	font-family: Arial;
+	background-color: #E5F0FF;
+}
+
+.title{
+	font-size: 24px;
+	padding: 20px 0 0 20px;
+}
+
+.main{
+	width: 500px;
+	height: 340px;
+	border: 2px solid black;
+	margin-left: 20px;
+	margin-top: 5px;
+}
+
+.line{
+	width: 460px;
+	height: 30px;
+	margin-left: 20px;
+	border-bottom: 2px dotted #B7D4FF;
+	margin-top: 10px;
+}
+
+.name{
+	width: 150px;
+	display: inline-block;
+}
+
+.registration-button{
+	margin-left: 173px;
+	margin-top: 10px;
+}
+
+

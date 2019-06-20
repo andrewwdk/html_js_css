@@ -1,0 +1,66 @@
+<!Doctypy html>
+<html>
+	<head>
+		<title> Registration</title>
+		<link rel="stylesheet" href="style.css">
+	</head>
+	<body>
+		<form name="registration" method="post">
+			<div class="title">Регистрация</div>
+			<div class="main">
+				<div class="line">
+					<div class="name">E-mail:</div>
+					<input type="text" size="30" placeholder="test@ucodes.ru">
+				</div>
+				<div class="line">
+					<div class="name">Логин:</div>
+					<input type="text" size="30">
+				</div>
+				<div class="line">
+					<div class="name">Пароль:</div>
+					<input type="text" size="30">
+				</div>
+				<div class="line">
+					<div class="name">Пол:</div>
+					<input type="radio" name="sex" value="woman"> женщина
+					<input type="radio" name="sex" value="man" checked> мужчина
+				</div>
+				<div class="line">
+					<div class="name">Настоящее имя:</div>
+					<input type="text" size="30">
+				</div>
+				<div class="line">
+					<div class="name">Дата рождения:</div>
+					<select>
+  						<option disabled selected>Год</option>
+  						<option value="2005">2005</option>
+  						<option value="2006">2006</option>
+  						<option value="2007">2007</option>
+					</select> -
+					<select>
+  						<option disabled selected>Месяц</option>
+  						<option value="Январь">Январь</option>
+  						<option value="Февраль">Февраль</option>
+  						<option value="Март">Март</option>
+					</select> -
+					<select>
+  						<option disabled selected>Число</option>
+  						<option value="1">1</option>
+  						<option value="2">2</option>
+  						<option value="3">3</option>
+					</select>
+				</div>
+				<div class="line">
+					<div class="name">Место рождения:</div>
+					<select>
+  						<option disabled selected>Город</option>
+  						<option value="Луганск">Луганск</option>
+  						<option value="Минск">Минск</option>
+  						<option value="Климовичи">Климовичи</option>
+					</select>
+				</div>
+				<input class="registration-button" type="submit" value="Регистрация">
+			</div>
+		</form>
+	</body>
+</html>
