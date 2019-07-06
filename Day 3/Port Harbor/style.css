@@ -75,7 +75,6 @@ p{
 
 .pencil-pic{
 	font-size: 30px;
-	/*position: relative;*/
 	margin: 13px 0 0 13px;
 	color: #70E852;
 }
@@ -217,9 +216,21 @@ ul.categories-list{
 	width: 100%; 
 }
 
-.lightbox .lightbox-image{
+.lightbox-image-box{
 	position: relative;
+	overflow: hidden;
+	width: 700px;
+	height: 400px;
+	display: flex;
+	justify-content: center;
 }
+
+.lightbox .lightbox-image{
+	width: 700px;
+	height: 400px;
+	min-width: 700px;
+	position: relative;
+}	
 
 .lightbox #close{
 	position: absolute;
@@ -250,4 +261,64 @@ ul.categories-list{
 
 .show-it{
 	transform: rotateY(0deg);
+}
+
+.fade-in{
+	animation: fade-in 1.5s;
+}
+
+.fade-out{
+	animation: fade-out 1.5s;
+}
+
+.previous-horizontal-animation{
+	animation: right-to-left 1s;
+}
+
+.next-horizontal-animation{
+	animation: left-to-right 1s;
+}
+
+.previous-vertical-animation{
+	animation: bottom-to-top 1s;
+}
+
+.next-vertical-animation{
+	animation: top-to-bottom 1s;
+}
+
+@keyframes fade-in
+{
+  0%   {opacity:1}
+  100% { opacity: 0}
+} 
+
+@keyframes fade-out
+{
+  0%   {opacity:0}
+  100% { opacity: 1}
+} 
+
+@keyframes left-to-right
+{
+  0%   {margin-right: 0}
+  100% {margin-right: 200%}
+}
+
+@keyframes right-to-left
+{
+  0%   {margin-left: 0}
+  100% {margin-left: 200%}
+}
+
+@keyframes bottom-to-top
+{
+  0%   {margin-top: 0}
+  100% {margin-top: 800px}
+}
+
+@keyframes top-to-bottom
+{
+  0%   {margin-bottom: 0}
+  100% {margin-bottom: 800px}
 }

@@ -31,7 +31,11 @@
 			<div class="lightbox" id="lightbox">
 				<div class="overlay" id="overlay"></div>
 				<button id="left" onclick="slide(-1)"> < </button>
-				<img class="lightbox-image" id="lightbox-image" src="main-pic.jpg">
+				<div class="lightbox-image-box" id="lightbox-image-box">
+					<img class="lightbox-image previous" id="previous" src="main-pic.jpg">
+					<img class="lightbox-image current" id="lightbox-image" src="main-pic.jpg">
+					<img class="lightbox-image next" id="next" src="main-pic.jpg">
+				</div>
 				<button id="right" onclick="slide(1)"> > </button>
 				<button id="close" onclick="closeSlider()"> X </button>
 			</div>

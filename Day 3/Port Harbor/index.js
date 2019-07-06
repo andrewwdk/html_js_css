@@ -23,7 +23,8 @@ function savePics(){
 }
 
 var picsSrc = [];
-var index;
+var index, nextIndex, previousIndex;
+var animationStyle = 3;
 
 function openSlider(){
 	picsSrc = localStorage.picsSrc.split(',');
@@ -51,18 +52,106 @@ function closeSlider(){
 }
 
 function slide(direction){
-	index += direction;
+	var lightboxImage = document.getElementById("lightbox-image");
 
+	nextIndex = correctIndex(index + 1);
+	previousIndex = correctIndex(index - 1);
+
+	switch(animationStyle){
+		case 3:
+			verticalMoving(lightboxImage, direction);
+			break;
+		case 2:
+			horizontalMoving(lightboxImage, direction);
+			break;
+		default:
+			fading(lightboxImage, direction);
+	}	
+}
+
+function verticalMoving(lightboxImage, direction){
+	 var lightboxImageBox = document.getElementById("lightbox-image-box");
+	 lightboxImageBox.style.flexDirection = "column";
+
+	if(direction == 1){
+				var nextLightboxImage = document.getElementById("next");
+				nextLightboxImage.src = picsSrc[nextIndex];
+				nextLightboxImage.classList.add("next-vertical-animation");
+			}else{
+				var previousLightboxImage = document.getElementById("previous");
+				previousLightboxImage.src = picsSrc[previousIndex];
+				previousLightboxImage.classList.add("previous-vertical-animation");
+			}
+
+	sleep(1000).then(() => {
+			index = correctIndex(index + direction);
+			lightboxImage.src = picsSrc[index];
+			localStorage.mainPicSrc = picsSrc[index];
+			loadImage();
+
+			if(direction == 1){
+				nextLightboxImage.classList.remove("next-vertical-animation");
+			}else{
+				previousLightboxImage.classList.remove("previous-vertical-animation");
+			}
+
+			 lightboxImageBox.style.flexDirection = "row";
+	});
+}
+
+function horizontalMoving(lightboxImage, direction){
+	if(direction == 1){
+				var nextLightboxImage = document.getElementById("next");
+				nextLightboxImage.src = picsSrc[nextIndex];
+				nextLightboxImage.classList.add("next-horizontal-animation");
+			}else{
+				var previousLightboxImage = document.getElementById("previous");
+				previousLightboxImage.src = picsSrc[previousIndex];
+				previousLightboxImage.classList.add("previous-horizontal-animation");
+			}
+
+	sleep(1000).then(() => {
+			index = correctIndex(index + direction);
+			lightboxImage.src = picsSrc[index];
+			localStorage.mainPicSrc = picsSrc[index];
+			loadImage();
+
+			if(direction == 1){
+				nextLightboxImage.classList.remove("next-horizontal-animation");
+			}else{
+				previousLightboxImage.classList.remove("previous-horizontal-animation");
+			}
+	});
+}
+
+function fading(lightboxImage, direction){
+	lightboxImage.classList.add('fade-in');
+
+			sleep(1500).then(() => {
+				lightboxImage.classList.remove('fade-in');
+				lightboxImage.classList.add('fade-out');
+				index = correctIndex(index + direction);
+				lightboxImage.src = picsSrc[index];
+				localStorage.mainPicSrc = picsSrc[index];
+				loadImage();
+				sleep(1500).then(() => {
+					lightboxImage.classList.remove('fade-out');
+				});
+			});
+}
+
+function sleep (time) {
+  return new Promise((resolve) => setTimeout(resolve, time));
+}
+
+function correctIndex(index){
 	if(index < 0){
-		index = picsSrc.length - 1;
+		return picsSrc.length - 1;
 	}
 
 	if(index > picsSrc.length - 1){
-		index = 0;
+		return 0;
 	}
 
-	var lightboxImage = document.getElementById("lightbox-image");
-	lightboxImage.src = picsSrc[index];
-	localStorage.mainPicSrc = picsSrc[index];
-	loadImage();
+	return index;
 }
